@@ -1,5 +1,4 @@
 const net = require('net');
-
 const connect = function(){
   const conn = net.createConnection({
     host: '135.23.222.131',
@@ -7,7 +6,9 @@ const connect = function(){
 
     
   });
-  
+  conn.on('connect', () => {
+    conn.write('Name: GTF')
+  })
   conn.on('data', (data) => {
     console.log(data, "its got a sharp tongue this server")
   })
